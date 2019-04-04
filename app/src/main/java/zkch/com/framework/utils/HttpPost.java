@@ -1,9 +1,6 @@
-package zkch.com.framework;
+package zkch.com.framework.utils;
 
-import android.os.Environment;
-import android.os.Handler;
 import android.util.Log;
-
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,13 +15,13 @@ import java.net.URL;
  * 发送异常日志到钉钉群
  */
 public class HttpPost {
-    private static String url = "https://oapi.dingtalk.com/robot/send?access_token=ac0a5710d9e1a85f00e5d9ea9e17fa3727f224da64c32966f830d25a0d885641";
+    //https://oapi.dingtalk.com/robot/send?access_token=f643096ff2a22ebb10ccf77f074e9b2051da533d2c19cab045e7a291a307fcea
+    private static String url = "https://oapi.dingtalk.com/robot/send?access_token=f643096ff2a22ebb10ccf77f074e9b2051da533d2c19cab045e7a291a307fcea";
     private static final String nextLine = "\r\n";
     private static final String twoHyphens = "--";
     //分割线  随便写一个
     private static final String boundary = "wk_file_2519775";
 
-    private static String Filepath= Environment.getExternalStorageDirectory().getAbsolutePath();
     /**
      * 生成http连接
      * @param method http请求方式
@@ -46,7 +43,7 @@ public class HttpPost {
      */
     public static void uploadFiles(File[] files){
         for (File file : files){
-           // uploadFile(file);
+             uploadFile(file);
         }
     }
 
@@ -55,7 +52,7 @@ public class HttpPost {
      * 上传文件
      * @param file 文件
      */
-    public static void uploadFile(String file){
+    public static void uploadFile(File file){
         HttpURLConnection connection = null;
         OutputStream outputStream = null;
         FileInputStream inputStream = null;
@@ -86,10 +83,9 @@ public class HttpPost {
             header += "Content-Disposition: form-data;name=\"file\";" + "filename=\"" + "\"" + nextLine + nextLine;
             //写入输出流
             outputStream.write(header.getBytes());
-            File txtfile = new File(Filepath + File.separator +file);
 
             //读取文件并写入
-            inputStream = new FileInputStream(txtfile);
+            inputStream = new FileInputStream(file);
             byte[] bytes = new byte[1024];
             int length;
             while ((length = inputStream.read(bytes))!= -1){
@@ -110,6 +106,7 @@ public class HttpPost {
             }
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
                 Log.i("uploadFile: ",connection.getResponseMessage());
+              //  file.delete();
             }else {
                 Log.i("uploadFile: ","上传失败");
             }

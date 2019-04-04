@@ -1,4 +1,4 @@
-package zkch.com.framework;
+package zkch.com.framework.utils;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;

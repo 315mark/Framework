@@ -1,4 +1,4 @@
-package zkch.com.framework;
+package zkch.com.framework.utils;
 
 import android.content.Context;
 import java.io.BufferedReader;
@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import static zkch.com.framework.MyApp.PATH_LOGCAT;
+
 /**
  * TODO: log日志统计保存、上传-工具类
  */
@@ -15,8 +17,8 @@ import java.io.InputStreamReader;
 public class LogcatHelper {
 
     private static LogcatHelper INSTANCE = null;
-    /**日志文件保存路径*/
-    private static String PATH_LOGCAT;
+
+
     private LogDumper mLogDumper = null;
     private String pakename;
     /**应用进程ID*/
@@ -29,7 +31,7 @@ public class LogcatHelper {
 //            PATH_LOGCAT = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + context.getPackageName() + File.separator + "logcat";
 //        } else {
         //如果SD卡不存在，就保存到本应用的目录下【why 直接保存到本应用的目录下】
-        PATH_LOGCAT = context.getFilesDir().getAbsolutePath() + File.separator + "logcat";
+
 //        }
         pakename =AppUtils.getAppName(context);
         File file = new File(PATH_LOGCAT);
@@ -76,7 +78,7 @@ public class LogcatHelper {
         public LogDumper(String pid, String dir) {
             mPID = pid;
             try {
-                out = new FileOutputStream(new File(dir, "logcat-" + DateUtil.getFileName() + ".log"));
+                out = new FileOutputStream(new File(dir, "logcat.txt"));
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

@@ -1,4 +1,4 @@
-package zkch.com.framework;
+package zkch.com.framework.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,27 +1,23 @@
-package zkch.com.framework;
+package zkch.com.framework.utils;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Environment;
-import android.os.Handler;
 import android.os.Looper;
 import android.os.Process;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.lang.reflect.Field;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static zkch.com.framework.MyApp.PATH_LOGCAT;
 
 /**
  * Created by yk on 2018/4/17
@@ -41,8 +37,8 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
     // 用于格式化日期,作为日志文件名的一部分  
     private DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
     private String nameString="fastpinAFC";
-    Handler handler = new Handler();
-    private String Filepath= Environment.getExternalStorageDirectory().getAbsolutePath();
+
+
     /**
      * 保证只有一个CrashHandler实例
      */
@@ -104,7 +100,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             public void run() {
                 Looper.prepare();
                 // 保存日志文件
-                HttpPost.uploadFile(filename);
+                File file=new File(PATH_LOGCAT);
+                File[] files=file.listFiles();
+                if (files != null ){
+                    HttpPost.uploadFiles(files);
+                }
                 Looper.loop();
             }
         }.start();
@@ -143,11 +143,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             fileName = nameString + "-" + time  +".log";
             if (Environment.getExternalStorageState().equals(
                     Environment.MEDIA_MOUNTED)) {
-                File dir = new File(Filepath);
+                File dir = new File(PATH_LOGCAT);
                 if (!dir.exists()) {
                     dir.mkdirs();
                 }
-                FileOutputStream fos = new FileOutputStream(Filepath + File.separator + fileName);
+                FileOutputStream fos = new FileOutputStream(PATH_LOGCAT + File.separator + fileName);
                 fos.write(sb.toString().getBytes());
                 fos.close();
             }
