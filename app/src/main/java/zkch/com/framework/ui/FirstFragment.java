@@ -1,6 +1,7 @@
-package zkch.com.framework;
+package zkch.com.framework.ui;
 
-import zkch.com.framework.base.BaseFragment;
+import zkch.com.framework.R;
+import zkch.com.framework.common.base.BaseFragment;
 
 
 public class FirstFragment extends BaseFragment {

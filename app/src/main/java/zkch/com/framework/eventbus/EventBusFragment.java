@@ -9,8 +9,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import zkch.com.framework.R;
-import zkch.com.framework.base.BaseFragment;
-import zkch.com.framework.utils.FragmentUtils;
+import zkch.com.framework.common.base.BaseFragment;
 
 public class EventBusFragment extends BaseFragment {
     @BindView(R.id.eventbus_send)
@@ -41,7 +40,6 @@ public class EventBusFragment extends BaseFragment {
         Send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
               //  FragmentUtils.replace(EventBusFragment.newInstance(),EventBusSendFragment.newInstance());
 
             }
@@ -67,7 +65,6 @@ public class EventBusFragment extends BaseFragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
         EventBus.getDefault().unregister(EventBusFragment.this);
     }
 }

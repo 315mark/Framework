@@ -18,7 +18,6 @@ public class LogcatHelper {
 
     private static LogcatHelper INSTANCE = null;
 
-
     private LogDumper mLogDumper = null;
     private String pakename;
     /**应用进程ID*/

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Button
+        android:id="@+id/toJson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="将JSON对象转换成Java对象"
+        android:textSize="18sp"
+        />
+
+    <Button
+        android:id="@+id/javaList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="将JSON数组转换成Java集合"
+        android:textSize="18sp"
+        />
+
+    <Button
+        android:id="@+id/javaToList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="将Java对象转化成JSON对象"
+        android:textSize="18sp"
+        />
+    <Button
+        android:id="@+id/javaToArray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="将Java集合转化成JSON数组"
+        android:textSize="18sp"
+        />
+    <Button
+        android:id="@+id/jump"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Fragment跳转控制"
+        android:textSize="18sp"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="原始数据"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_blue_light"
+                />
+
+            <!-- ExpandableTextView 下拉展示的Text 控件 -->
+            <com.ms.square.android.expandabletextview.ExpandableTextView
+                android:id="@+id/view_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:layout_marginTop="20dp"
+                app:maxCollapsedLines="4"
+                app:animDuration="200">
+
+                <TextView
+                    android:id="@+id/expandable_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/expand_collapse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:layout_gravity="right|bottom"
+                    android:background="@android:color/transparent" />
+
+            </com.ms.square.android.expandabletextview.ExpandableTextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="转换后数据"
+                android:textSize="18sp"
+                android:textColor="@android:color/holo_blue_light"
+                />
+
+            <com.borjabravo.readmoretextview.ReadMoreTextView
+                android:id="@+id/tv_introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                app:showTrimExpandedText="false"
+                app:trimLength="100"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

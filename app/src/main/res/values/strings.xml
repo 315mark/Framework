@@ -12,4 +12,23 @@
     <string name="SendData">主线程发送数据</string>
     <string name="result">显示结果</string>
     <string name="recevieData">接收粘性数据</string>
+    <string name="city">城市:</string>
+    <string name="wd">\n风向:</string>
+    <string name="ws">\n风级:</string>
+    <string name="time">\n发布时间:</string>
+    <string name="net_error">网络不给力</string>
+    <string name="title">MVP+Retrofit+Rxjava2</string>
+    <string name="logo">logo</string>
+    <string name="play">播放</string>
+    <string name="et_words">点击开始说话</string>
+    <string name="right_arrow">></string>
+    <string name="single_reco">单次识别</string>
+    <string name="recognizer">语音识别</string>
+    <string name="recognizer_cont">语音识别连续</string>
+    <string name="recognizer_data">数据识别</string>
+    <string name="recognizer_data_cont">数据识别连续</string>
+    <string name="recognizer_postbyself">自行收发语音识别</string>
+    <string name="recognizer_postbyself_data">自行收发数据识别</string>
+    <string name="recognizer_browser">语音识别浏览器</string>
+    <string name="tts">语音合成</string>
 </resources>

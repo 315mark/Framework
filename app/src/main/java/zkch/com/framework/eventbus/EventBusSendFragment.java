@@ -10,7 +10,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import zkch.com.framework.R;
-import zkch.com.framework.base.BaseFragment;
+import zkch.com.framework.common.base.BaseFragment;
 
 public class EventBusSendFragment extends BaseFragment {
     @BindView(R.id.send_eventBus)

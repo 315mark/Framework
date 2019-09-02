@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvCurrentVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="当前版本:"/>
+
+    <Button
+        android:id="@+id/btnShowToast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="显示结果"
+        />
+    <Button
+        android:id="@+id/btnLoadPatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载补丁"
+        />
+    <Button
+        android:id="@+id/btnLoadLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加载so库"
+        />
+    <Button
+        android:id="@+id/btnDownloadPatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手动下载补丁包"
+        />
+    <Button
+        android:id="@+id/btnPatchDownloaded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="检查更新"
+        />
+    <Button
+        android:id="@+id/btnCheckUpgrade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手动合成补丁"
+        />
+    <Button
+        android:id="@+id/btnKillSelf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="退出程序"/>
+
+
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

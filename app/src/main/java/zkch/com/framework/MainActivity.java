@@ -1,8 +1,7 @@
 package zkch.com.framework;
 
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
+
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,12 +16,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import zkch.com.framework.adapter.ViewPagerAdapter;
-import zkch.com.framework.base.BaseActivity;
+import zkch.com.framework.bugly.TinkerActivity;
+import zkch.com.framework.bugly.UpgradeActivity;
+import zkch.com.framework.common.base.BaseActivity;
 import zkch.com.framework.bean.FragmentInfo;
 import zkch.com.framework.eventbus.EventBusFragment;
-import zkch.com.framework.utils.FragmentUtils;
+import zkch.com.framework.json.FastJsonActivity;
+
+import zkch.com.framework.okhttp.OkHttpActivity;
 
 
 public class MainActivity extends BaseActivity
@@ -41,6 +43,10 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.navigation)
     BottomNavigationView btnNavigView;
 
+    @Override
+    protected void initMvp() {
+
+    }
 
     @Override
     protected int getLayoutResID() {
@@ -58,6 +64,11 @@ public class MainActivity extends BaseActivity
         navView.setNavigationItemSelectedListener(this);
 
         initViewPager();
+    }
+
+    @Override
+    protected void initDestroy() {
+
     }
 
     private void initViewPager() {
@@ -84,7 +95,7 @@ public class MainActivity extends BaseActivity
             }
         });
 
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        /*viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
                 //注意这个方法滑动时会调用多次，下面是参数解释：
@@ -114,7 +125,7 @@ public class MainActivity extends BaseActivity
                 //SCROLL_STATE_DRAGGING：正在被拖动，实际值为1
                 //SCROLL_STATE_SETTLING：拖动结束,实际值为2
             }
-        });
+        });*/
     }
 
     private List<FragmentInfo> initFragment() {
@@ -141,9 +152,9 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-
+            launchWithFinishSelf(FastJsonActivity.class);
         } else if (id == R.id.nav_gallery) {
-
+            launchWithFinishSelf(OkHttpActivity.class);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -152,6 +163,10 @@ public class MainActivity extends BaseActivity
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id ==R.id.update) {
+            launchWithFinishSelf(UpgradeActivity.class);
+        } else if (id == R.id.hot_fix){
+            launchWithFinishSelf(TinkerActivity.class);
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
